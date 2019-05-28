@@ -3,10 +3,7 @@ class Dashboard::BeveragesController < ApplicationController
   def index
     @beverages = current_user.beverages
     @orders_buy = current_user.orders
-    @orders_sell = []
-    current_user.beverages.each do |b|
-      @orders_sell = b.orders
-    end
+    @orders_sell = current_user.beverages.map { |b| b.orders }
   end
 
   def show

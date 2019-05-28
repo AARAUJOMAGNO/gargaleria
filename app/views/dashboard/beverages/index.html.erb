@@ -16,9 +16,12 @@
 </div>
 <div>
   <h3>Sales history</h3>
-
   <% @orders_sell.each do |sell| %>
-    <%= sell.status%>
+    <% sell.each do |item|  %>
+      <%= link_to item.beverage.name, dashboard_order_path(buy.id)%>
+      <%= item.status%>
+      <%= item.created_at.strftime("%d/%m/%Y") %>
+    <% end  %>
   <% end  %>
 </div>
 <div>
