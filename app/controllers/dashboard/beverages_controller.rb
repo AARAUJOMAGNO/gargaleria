@@ -2,6 +2,7 @@ class Dashboard::BeveragesController < ApplicationController
   before_action :find_beverages, only: %i[show edit update destroy]
   def index
     @beverages = current_user.beverages
+    @orders = current_user.orders
   end
   def show
   end

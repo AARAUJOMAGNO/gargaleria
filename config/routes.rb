@@ -5,10 +5,13 @@ Rails.application.routes.draw do
 
   get 'beverages/:id/buy', to: "beverages#buy", as: 'beverages_buy'
   post 'beverages/:id/finalize', to: "beverages#finalize", as: 'beverages_finalize'
-  get 'orders/:id', to: "beverages#seller", as: 'beverages_seller'
+  get 'orders/:id/finalize', to: "beverages#seller", as: 'beverages_seller'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   namespace :dashboard do
     resources :beverages
+    resources :orders, only: %i[show destroy]
   end
+
+
 end

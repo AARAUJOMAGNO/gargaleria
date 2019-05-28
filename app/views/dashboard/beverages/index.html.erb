@@ -1,8 +1,19 @@
 
+<div>
 <h1>View dashboard</h1>
 <% @beverages.each do |beverage| %>
   <%= link_to beverage.name, dashboard_beverage_path(beverage) %>
   <%= link_to 'delete', dashboard_beverage_path(beverage), method: :delete, data: {confirm:'are you sure?'}, class:"btn btn-danger" %>
 <% end %>
+</div>
+<div>
+  <h3>Historico de compras</h3>
+  <% @orders.each do |order| %>
+  <%= link_to order.beverage.name, dashboard_order_path(order.id)%>
+    Status: <%= order.status %>
+    <%= order.created_at.strftime("%d/%m/%Y") %>
+  <% end %>
+</div>
+<div>
 <%= link_to 'Create', new_dashboard_beverage_path %>
-
+</div>
