@@ -1,0 +1,6 @@
+<h1>Comprar produto</h1>
+<%= @beverage.name %>
+<%= simple_form_for @order, url:beverages_finalize_path(@beverage), method: :post  do |f| %>
+<%= f.input :quantity %>
+<%= f.submit 'Finalize', class:"btn btn-primary" %>
+<% end %>

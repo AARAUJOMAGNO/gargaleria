@@ -1,3 +1,3 @@
 <% @beverages.each do |beverage| %>
-<%= beverage.name %>
+<%= link_to beverage.name, beverage_path(beverage.id) %>
 <% end %>
