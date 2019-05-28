@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(version: 2019_05_28_203310) do
     t.float "total_price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "status", default: "pendent"
+    t.string "status", default: "pending"
     t.index ["beverage_id"], name: "index_orders_on_beverage_id"
     t.index ["user_id"], name: "index_orders_on_user_id"
   end

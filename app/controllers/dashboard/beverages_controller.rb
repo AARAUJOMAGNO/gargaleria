@@ -2,13 +2,20 @@ class Dashboard::BeveragesController < ApplicationController
   before_action :find_beverages, only: %i[show edit update destroy]
   def index
     @beverages = current_user.beverages
-    @orders = current_user.orders
+    @orders_buy = current_user.orders
+    @orders_sell = []
+    current_user.beverages.each do |b|
+      @orders_sell = b.orders
+    end
   end
+
   def show
   end
+
   def new
     @beverage = Beverage.new
   end
+
   def create
     @beverage = Beverage.new(params_beverages)
     @beverage.user = current_user
@@ -18,12 +25,15 @@ class Dashboard::BeveragesController < ApplicationController
       render :new
     end
   end
+
   def edit
   end
+
   def update
     @beverage.update(params_beverages)
     redirect_to dashboard_beverage_path(@beverage)
   end
+
   def destroy
     @beverage.destroy
     redirect_to dashboard_beverages_path

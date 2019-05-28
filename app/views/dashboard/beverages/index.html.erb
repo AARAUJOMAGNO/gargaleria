@@ -7,13 +7,21 @@
 <% end %>
 </div>
 <div>
-  <h3>Historico de compras</h3>
-  <% @orders.each do |order| %>
-  <%= link_to order.beverage.name, dashboard_order_path(order.id)%>
-    Status: <%= order.status %>
-    <%= order.created_at.strftime("%d/%m/%Y") %>
+  <h3>Purchase history</h3>
+  <% @orders_buy.each do |buy| %>
+  <%= link_to buy.beverage.name, dashboard_order_path(buy.id)%>
+    Status: <%= buy.status %>
+    <%= buy.created_at.strftime("%d/%m/%Y") %>
   <% end %>
 </div>
 <div>
+  <h3>Sales history</h3>
+
+  <% @orders_sell.each do |sell| %>
+    <%= sell.status%>
+  <% end  %>
+</div>
+<div>
 <%= link_to 'Create', new_dashboard_beverage_path %>
+<%= link_to 'Return', beverages_path %>
 </div>

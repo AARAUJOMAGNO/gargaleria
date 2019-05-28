@@ -5,9 +5,11 @@ class Dashboard::OrdersController < ApplicationController
   end
 
   def destroy
-    @order.status = "canceled"
-    @order.save
-    redirect_to dashboard_beverages_path
+    unless @order.status == 'finalized' || @order.status == 'posted'
+      @order.status = "canceled"
+      @order.save
+      redirect_to dashboard_beverages_path
+    end
   end
 
   private
