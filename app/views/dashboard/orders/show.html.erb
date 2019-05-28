@@ -1,0 +1,9 @@
+<div class="container">
+  <h1>Order details</h1>
+  <%= @order.status %>
+  <%= link_to 'Cancel', dashboard_order_path(@order), method: :delete, data:{confirm:"are you shure?"}, class:"btn btn-danger" %>
+  <div>
+  <%= link_to 'Return', dashboard_beverages_path %>
+</div>
+</div>
+
