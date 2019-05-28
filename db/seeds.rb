@@ -5,3 +5,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+user = User.first
+Beverage.create!(user: user, name: "Cerva do Frei", price: 27.99, stock: 12, genre: "cerveja", category: "ALE", brand: "Freizão Co.", description: "Uma cerveja encorpada, com alto amargor e leve toque apimentado")
+
+Beverage.create!(user: user, name: "Cachaça do Frei", price: 59.90, stock: 5, genre: "cachaça", category: "Ouro", brand: "Freizão Co.", description: "Envelhecida em barril de carvalho francês por 12 anos")
+
