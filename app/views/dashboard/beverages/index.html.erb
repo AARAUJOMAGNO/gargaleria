@@ -1,5 +1,8 @@
 
 <h1>View dashboard</h1>
 <% @beverages.each do |beverage| %>
-  <%= beverage.name %>
+  <%= link_to beverage.name, dashboard_beverage_path(beverage) %>
+  <%= link_to 'delete', dashboard_beverage_path(beverage), method: :delete, data: {confirm:'are you sure?'}, class:"btn btn-danger" %>
 <% end %>
+<%= link_to 'Create', new_dashboard_beverage_path %>
+

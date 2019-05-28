@@ -1,0 +1,6 @@
+<div class="container">
+<h1>Update beverage</h1>
+  <%= simple_form_for @beverage, url: dashboard_beverage_path(@beverage), method: :patch do |f| %>
+    <%= render 'form', f: f %>
+  <% end %>
+</div>
