@@ -10,10 +10,36 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_28_135355) do
+ActiveRecord::Schema.define(version: 2019_05_28_141002) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "beverages", force: :cascade do |t|
+    t.bigint "user_id"
+    t.float "price"
+    t.integer "stock"
+    t.string "genre"
+    t.string "category"
+    t.string "brand"
+    t.text "description"
+    t.string "photo"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_beverages_on_user_id"
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "beverage_id"
+    t.integer "quantity"
+    t.float "price"
+    t.float "total_price"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["beverage_id"], name: "index_orders_on_beverage_id"
+    t.index ["user_id"], name: "index_orders_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -23,8 +49,19 @@ ActiveRecord::Schema.define(version: 2019_05_28_135355) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "admin", default: false
+    t.string "address"
+    t.date "birthdate"
+    t.string "phone"
+    t.string "cpf"
+    t.string "cnpj"
+    t.string "company"
+    t.string "avatar"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "beverages", "users"
+  add_foreign_key "orders", "beverages"
+  add_foreign_key "orders", "users"
 end
