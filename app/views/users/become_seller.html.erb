@@ -1,0 +1,21 @@
+<%= simple_form_for @user, url: update_user_path do |f| %>
+    <%= f.input :first_name,
+                required: true,
+                input_html: { autocomplete: "current-first_name" } %>
+    <%= f.input :last_name,
+                required: true,
+                input_html: { autocomplete: "current-last_name" } %>
+    <%= f.input :address,
+                required: true,
+                input_html: { autocomplete: "current-address" } %>
+    <%= f.input :phone,
+                required: true,
+                input_html: { autocomplete: "current-phone" } %>
+    <%= f.input :cnpj,
+                required: true,
+                input_html: { autocomplete: "current-cnpj" } %>
+    <%= f.input :company,
+                required: true,
+                input_html: { autocomplete: "current-company" } %>
+    <%= f.button :submit, "Become a Seller" %>
+<% end %>
