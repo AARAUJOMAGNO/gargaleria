@@ -1,5 +1,5 @@
 class Dashboard::OrdersController < ApplicationController
-  before_action :find_order, only: %i[show destroy]
+  before_action :find_order, only: %i[show destroy posted]
 
   def show
   end
@@ -10,6 +10,12 @@ class Dashboard::OrdersController < ApplicationController
       @order.save
       redirect_to dashboard_beverages_path
     end
+  end
+
+  def posted
+    @order.status = 'posted'
+    @order.save
+    redirect_to dashboard_beverages_path
   end
 
   private

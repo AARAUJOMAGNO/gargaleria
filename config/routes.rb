@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   namespace :dashboard do
     resources :beverages
     resources :orders, only: %i[show destroy]
+    get 'orders/:id/posted', to:"orders#posted", as: "order_posted"
   end
 
 
