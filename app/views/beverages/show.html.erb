@@ -1,5 +1,16 @@
-<%= @beverage.name %>
-<% unless @beverage.user == current_user %>
-  <%= link_to "Buy", beverages_buy_path(@beverage) %>
-<% end %>
-<%= link_to 'Return', beverages_path %>
+<%= render 'shared/navbar_intern' %>
+<div class="container">
+  <div style="display: flex; flex-direction: column;">
+  <div>
+  <%= @beverage.name %>
+  </div>
+  <div>
+  <% unless @beverage.user == current_user %>
+    <%= link_to "Buy", beverages_buy_path(@beverage), class:"btn btn-warning" %>
+  <% end %>
+  </div>
+  <div>
+  <%= link_to 'Return', beverages_path, class:"btn btn-primary" %>
+  </div>
+  </div>
+</div>
