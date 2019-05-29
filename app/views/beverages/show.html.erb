@@ -2,7 +2,9 @@
 <div class="container">
   <div style="display: flex; flex-direction: column;">
   <div>
-    <%= cl_image_tag @beverage.photo, id:"beverage-img-show"%>
+    <% if @beverage.photo %>
+      <%= cl_image_tag @beverage.photo, id:"beverage-img-show"%>
+    <% end %>
   </div>
   <div>
   <%= @beverage.name %>
