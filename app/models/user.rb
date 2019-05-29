@@ -6,4 +6,6 @@ class User < ApplicationRecord
   validates :terms, acceptance: true
   has_many :beverages, dependent: :destroy
   has_many :orders
+
+  mount_uploader :photo, PhotoUploader
 end
