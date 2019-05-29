@@ -1,2 +1,5 @@
 <%= @beverage.name %>
-<%= link_to "Buy", beverages_buy_path(@beverage) %>
+<% unless @beverage.user == current_user %>
+  <%= link_to "Buy", beverages_buy_path(@beverage) %>
+<% end %>
+<%= link_to 'Return', beverages_path %>
