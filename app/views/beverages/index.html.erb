@@ -1,3 +1,12 @@
+<div class="banner" id="banner">
+  <div class="container">
+    <h1>Experiência <strong>única</strong></h1>
+    <p>A cerveja <strong>Freizão&Co.</strong> acaba de lançar<br> a Indian Pale Ale mais esperada do ano. <br>Seja um dos primeiros a comprar essa maravilha.</p>
+    <a class="btn button" href="#">Comprar</a>
+  </div>
+</div>
+
+
 <% @beverages.each do |beverage| %>
 <%= link_to beverage.name, beverage_path(beverage.id) %>
 <% end %>
