@@ -1,4 +1,15 @@
 <%= render 'shared/navbar_intern' %>
-<h1>Beverage detail</h1>
-<%= @beverage.name %>
-<%= link_to "Update", edit_dashboard_beverage_path %>
+<div>
+  <div>
+    <h1>Beverage detail</h1>
+  </div>
+  <div>
+    <%= cl_image_tag @beverage.photo, id:"beverage-img-show"%>
+  </div>
+  <div>
+    <%= @beverage.name %>
+  </div>
+  <div>
+    <%= link_to "Update", edit_dashboard_beverage_path %>
+  </div>
+</div>
