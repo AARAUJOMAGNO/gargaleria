@@ -1,16 +1,18 @@
 <div class="container">
   <h1>Order details</h1>
   <%= @order.status %>
-  <% unless @order.status == 'shipped' %>
+  <% if @order.status == 'pending' %>
     <%= link_to 'Cancel', dashboard_order_path(@order), method: :delete, data:{confirm:"Are you sure you want to cancel?"}, class:"btn btn-danger" %>
   <% else %>
-  <p>This order is already posted</p>
+    <p><%="This order is already #{@order.status}"%></p>
   <% end %>
-  <% if @order.beverage.user == current_user %>
-    <%= link_to 'Set as shipped', dashboard_ship_order_path(@order), method: :patch, data:{confirm:"Are you sure?"}, class:"btn btn-primary" %>
+  <% if @order.beverage.user == current_user && @order.status == 'pending' %>
+    <%= link_to 'Ship', dashboard_ship_order_path(@order), method: :patch, data:{confirm:"Are you sure?"}, class:"btn btn-primary" %>
+  <% end %>
+  <% if @order.beverage.user != current_user && @order.status == 'shipped' %>
+    <%= link_to 'Delivered', dashboard_delivered_order_path(@order), method: :patch, data:{confirm:"Are you sure?"}, class:"btn btn-primary" %>
   <% end %>
   <div>
   <%= link_to 'Return', dashboard_beverages_path %>
 </div>
 </div>
-
