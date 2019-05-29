@@ -59,9 +59,14 @@
     <% @beverages.each do |beverage| %>
     <% if beverage.published %>
       <div style="display: flex; flex-direction: column; justify-content:center; align-items: center; ">
-      <div style="margin-top:20px;"><h4><%= link_to beverage.name, beverage_path(beverage.id)%></h4></div>
-      <div style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg); width:300px; height: 200px; display: flex; flex-direction: column; justify-content: center; align-items: center; color: white; margin: 10px; background-size: cover;">
+      <div style="margin-top:20px;">
+        <h4><%= link_to beverage.name, beverage_path(beverage.id)%></h4>
       </div>
+      <% if beverage.photo.url %>
+        <div style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path beverage.photo, height: 200, width: 300, crop: :fill %>'); width:300px; height: 200px; display: flex; flex-direction: column; justify-content: center; align-items: center; color: white; margin: 10px; background-size: cover;"></div>
+      <% else %>
+          <div style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg); width:300px; height: 200px; display: flex; flex-direction: column; justify-content: center; align-items: center; color: white; margin: 10px; background-size: cover;"></div>
+      <% end %>
       <div><p style="color:grey;">Texto Inferior<p></div>
       </div>
     <% end %>
@@ -89,5 +94,3 @@
     </ul>
   </div>
 </div> -->
-
-
