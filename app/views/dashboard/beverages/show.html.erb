@@ -1,5 +1,5 @@
 <%= render 'shared/navbar_intern' %>
-<div>
+<div class="container">
   <div>
     <h1>Beverage detail</h1>
   </div>
@@ -12,6 +12,6 @@
     <%= @beverage.name %>
   </div>
   <div>
-    <%= link_to "Update", edit_dashboard_beverage_path %>
+    <%= link_to "Update", edit_dashboard_beverage_path, class:"btn btn-warning" %>
   </div>
 </div>
