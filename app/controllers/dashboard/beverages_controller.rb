@@ -32,7 +32,8 @@ class Dashboard::BeveragesController < ApplicationController
   end
 
   def destroy
-    @beverage.destroy
+    @beverage.published = false
+    @beverage.save
     redirect_to dashboard_beverages_path
   end
 

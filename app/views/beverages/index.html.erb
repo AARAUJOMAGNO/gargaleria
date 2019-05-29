@@ -1,3 +1,5 @@
 <% @beverages.each do |beverage| %>
-<%= link_to beverage.name, beverage_path(beverage.id) %>
+<% if beverage.published %>
+  <%= link_to beverage.name, beverage_path(beverage.id) %>
+<% end %>
 <% end %>

@@ -2,8 +2,10 @@
 <% if current_user.seller %>
 <div>
   <% @beverages.each do |beverage| %>
-    <%= link_to beverage.name, dashboard_beverage_path(beverage) %>
-    <%= link_to 'delete', dashboard_beverage_path(beverage), method: :delete, data: {confirm:'are you sure?'}, class:"btn btn-danger" %>
+    <% if beverage.published %>
+      <%= link_to beverage.name, dashboard_beverage_path(beverage) %>
+      <%= link_to 'delete', dashboard_beverage_path(beverage), method: :delete, data: {confirm:'are you sure?'}, class:"btn btn-danger" %>
+    <% end %>
   <% end %>
 </div>
 <% end %>
