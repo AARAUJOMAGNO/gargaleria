@@ -3,6 +3,9 @@
 <div>
   <% @beverages.each do |beverage| %>
     <% if beverage.published %>
+      <% if beverage.photo.url %>
+        <%= cl_image_tag beverage.photo, height: 150, width: 200, crop: :fill %>
+      <% end %>
       <%= link_to beverage.name, dashboard_beverage_path(beverage) %>
       <%= link_to 'delete', dashboard_beverage_path(beverage), method: :delete, data: {confirm:'are you sure?'}, class:"btn btn-danger" %>
     <% end %>

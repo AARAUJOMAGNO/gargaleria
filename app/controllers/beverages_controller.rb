@@ -41,6 +41,6 @@ class BeveragesController < ApplicationController
   end
 
   def params_orders
-    params.require(:order).permit(:quantity)
+    params.require(:order).permit(:quantity, :photo)
   end
 end

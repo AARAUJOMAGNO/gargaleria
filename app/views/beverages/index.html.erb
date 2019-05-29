@@ -1,5 +1,8 @@
 <% @beverages.each do |beverage| %>
 <% if beverage.published %>
+  <% if beverage.photo.url %>
+    <%= cl_image_tag beverage.photo, height: 150, width: 200, crop: :fill %>
+  <% end %>
   <%= link_to beverage.name, beverage_path(beverage.id) %>
 <% end %>
 <% end %>

@@ -44,7 +44,7 @@ class Dashboard::BeveragesController < ApplicationController
   end
 
   def params_beverages
-    params.require(:beverage).permit(:name, :price, :stock, :genre, :category, :brand, :description)
+    params.require(:beverage).permit(:name, :price, :stock, :genre, :category, :brand, :description, :photo)
   end
 
 end
