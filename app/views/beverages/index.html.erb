@@ -1,5 +1,46 @@
-<% @beverages.each do |beverage| %>
-<% if beverage.published %>
-  <%= link_to beverage.name, beverage_path(beverage.id) %>
-<% end %>
-<% end %>
+<div class="banner" id="banner">
+  <div class="container">
+    <h1>Experiência <strong>única</strong></h1>
+    <p>A cerveja <strong>Freizão&Co.</strong> acaba de lançar<br> a Indian Pale Ale mais esperada do ano. <br>Seja um dos primeiros a comprar essa maravilha.</p>
+    <a class="btn button" href="#">Comprar</a>
+  </div>
+</div>
+<div style="display: flex; flex-direction: column; ">
+
+<div style="display: flex; flex-direction: row; justify-content: center;">
+  <div style="display: flex; flex-direction: row; justify-content: space-around; flex-wrap: wrap; width: 85vw;">
+    <% @beverages.each do |beverage| %>
+    <% if beverage.published %>
+      <div style="display: flex; flex-direction: column; justify-content:center; align-items: center; ">
+      <div style="margin-top:20px;"><h4><%= link_to beverage.name, beverage_path(beverage.id)%></h4></div>
+      <div style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg); width:300px; height: 200px; display: flex; flex-direction: column; justify-content: center; align-items: center; color: white; margin: 10px; background-size: cover;">
+      </div>
+      <div><p style="color:grey;">Texto Inferior<p></div>
+      </div>
+    <% end %>
+  <% end %>
+  </div>
+</div>
+</div>
+
+<!-- #link_to_beverage{
+  text-decoration: none;
+  color: black;
+  &:hover{
+    text-decoration:none;
+    color: orange;
+}
+} -->
+
+<!-- <div style="display:flex; flex-direction: row; border: 1px solid black; justify-content: center;">
+  <div style="border:1px solid red; display: flex; flex-direction: row; justify-content: center; width: 85vw;">
+    <ul style="width:100vw; display: flex; flex-direction: row; justify-content: space-around;">
+      <li style="display: inline;">Home</li>
+      <li style="display: inline;">Action</li>
+      <li style="display: inline;">Dashboard</li>
+      <li style="display: inline;">Logout</li>
+    </ul>
+  </div>
+</div> -->
+
+
