@@ -5,23 +5,30 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :email, required: true, autofocus: true %>
+    <%= f.input :email, as: :hidden, required: true, autofocus: true %>
 
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
     <% end %>
 
     <%= f.input :password,
-    hint: "Leave it blank if you don't want to change it",
-    required: false,
-    input_html: { autocomplete: "new-password" } %>
+                label: "New password",
+                hint: "Leave it blank if you don't want to change it",
+                required: false,
+                input_html: { autocomplete: "new-password" } %>
     <%= f.input :password_confirmation,
-    required: false,
-    input_html: { autocomplete: "new-password" } %>
+                label: "Confirm new password",
+                required: false,
+                input_html: { autocomplete: "new-password" } %>
     <%= f.input :current_password,
-    hint: "We need your current password to confirm your changes",
-    required: true,
-    input_html: { autocomplete: "current-password" } %>
+                hint: "We need your current password to confirm your changes",
+                required: true,
+                input_html: { autocomplete: "current-password" } %>
+    <%= f.input :first_name %>
+    <%= f.input :last_name %>
+    <%= f.input :birthdate %>
+    <%= f.input :address %>
+    <%= f.input :cpf %>
     <%= f.input :photo, label: "Profile Picture" %>
     <%= f.input :photo_cache, as: :hidden %>
   </div>

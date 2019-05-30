@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   def become_seller
   end
 
-  def update
+  def update_user
     @user.seller = true
     @user.update(user_params)
 
@@ -18,6 +18,6 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:address, :company, :first_name, :last_name, :seller, :photo)
+    params.require(:user).permit(:address, :company, :first_name, :last_name, :seller)
   end
 end
