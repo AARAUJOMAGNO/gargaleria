@@ -5,4 +5,7 @@
   <%= @order.beverage.user.email %>
   <p>Comprador</p>
   <%= @order.user.email %>
+  <div>
+    <%= link_to 'Return', beverages_path, class:"btn btn-primary" %>
+  </div>
 </div>

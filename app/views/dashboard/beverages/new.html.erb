@@ -4,4 +4,5 @@
   <%= simple_form_for @beverage, url: dashboard_beverages_path, method: :post do |f| %>
     <%= render 'form', f: f%>
   <% end  %>
+  <%= link_to 'Return', dashboard_beverages_path, class:"btn btn-primary" %>
 </div>

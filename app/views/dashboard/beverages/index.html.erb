@@ -41,13 +41,13 @@
       <% end  %>
     <% end  %>
   </div>
-<% end %>
+  <% end %>
 
-<div>
-<% if current_user.seller %>
-  <%= link_to 'Create', new_dashboard_beverage_path, class:"btn btn-warning" %>
-<% end %>
+  <div>
+    <% if current_user.seller %>
+      <%= link_to 'Create', new_dashboard_beverage_path, class:"btn btn-warning" %>
+    <% end %>
 
-<%= link_to 'Return', beverages_path, class:"btn btn-primary" %>
-</div>
+    <%= link_to 'Return', beverages_path, class:"btn btn-primary" %>
+  </div>
 </div>
