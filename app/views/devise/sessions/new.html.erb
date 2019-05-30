@@ -1,4 +1,13 @@
-<div class="container">
+<div style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+<div style="background-image: url('<%= image_path 'login.jpg' %>'); width:100vw; height: 60vh; display: flex; flex-direction: column; justify-content: center; align-items: center; color: white; margin: 10px; background-size: cover;">
+  <div style="margin-bottom: 90px;">
+    <h1>Venha comprar uma boa CERVA!</h1>
+    <p>Faça seu cadastro e aproveita as vantagens de ser membro da comunidade cervejeira</p>
+  </div>
+</div>
+
+<div style="display: flex; flex-direction: column; width: 60vw; justify-content: center; align-items: center;margin-top: -150px;">
+  <div style="width: 40vw; background-color:#f4f4f4; padding: 40px;">
   <h2>Log in</h2>
 
   <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
@@ -6,17 +15,19 @@
       <%= f.input :email,
                   required: false,
                   autofocus: true,
-                  input_html: { autocomplete: "email" } %>
+                  input_html: { autocomplete: "email" }%>
       <%= f.input :password,
                   required: false,
                   input_html: { autocomplete: "current-password" } %>
       <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
     </div>
 
-    <div class="form-actions">
-      <%= f.button :submit, "Log in" %>
+    <div class="form-actions" style="margin-bottom: 20px;">
+      <%= f.button :submit, "Login", id:"link_login_form" %>
     </div>
   <% end %>
 
   <%= render "devise/shared/links" %>
+  </div>
+</div>
 </div>
