@@ -1,9 +1,10 @@
 <div class="navbar-lewagon navbar-adjust container-top">
-  <div>
+  <!-- <div>
     <%= link_to "/" do  %>
       <%= image_tag "logo_gargaleria_laranja", class: 'logo' %>
     <% end %>
-  </div>
+  </div> -->
+  <%= render './shared/navbar' %>
   <div class="dashboard">
     <ul>
       <% if user_signed_in? %>
@@ -26,9 +27,9 @@
           </div>
         </li>
       <% else %>
-        <li>
+        <!-- <li>
           <%= link_to "Login", new_user_session_path, id:"link_login" %>
-        </li>
+        </li> -->
       <% end %>
     </ul>
   </button>
