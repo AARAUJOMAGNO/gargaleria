@@ -1,0 +1,16 @@
+const inputCategory = document.getElementById('beverage_category')
+
+inputCategory.addEventListener('change', (event) => {
+  if (inputCategory.value === 'Other') {
+    inputCategory.classList.id = 'unselected_input'
+    inputCategory.insertAdjacentHTML("afterend" ,`<input type="text" class="form-control extrainput" name="beverage[category]" id="beverage_category">`);
+  } else {
+    if (document.querySelector(".extrainput")) {
+      const extraInput = document.querySelector('.extrainput');
+
+      extraInput.id = 'unselected_input';
+      extraInput.classList.add('d-none');
+      inputCategory.id = 'beverage_category';
+    }
+  }
+});
