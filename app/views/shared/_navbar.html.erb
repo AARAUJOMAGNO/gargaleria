@@ -28,11 +28,7 @@
     <div>
     <ul style="margin-right: 25px; margin-top: 20px;">
       <% if user_signed_in? %>
-        <% if current_user.seller %>
-          <li class="nav-item active" style="display: inline;">
-            <%= link_to "Dashboard", dashboard_beverages_path, id:"link_dashboard" %>
-          </li>
-        <% else %>
+        <% unless current_user.seller %>
           <li class="nav-item active" style="display: inline;">
             <%= link_to "Become a Seller", become_seller_path, id:"link_seller" %>
           </li>
@@ -40,7 +36,9 @@
         <li class="nav-item dropdown" style="display: inline;">
           <%= image_tag "https://kitt.lewagon.com/placeholder/users/aaraujomagno", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-            <% unless current_user.seller %>
+            <% if current_user.seller %>
+              <%= link_to "Dashboard", dashboard_beverages_path, class: "dropdown-item", id:"link_dashboard" %>
+            <% else %>
               <%= link_to "Histories", dashboard_beverages_path, class: "dropdown-item" %>
             <% end %>
             <%= link_to "Edit Profile", edit_user_registration_path, class: "dropdown-item" %>
