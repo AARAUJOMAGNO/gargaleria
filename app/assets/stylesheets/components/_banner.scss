@@ -2,8 +2,11 @@
   background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)), image-url('cerva_1.jpg') !important;
   background-size: cover;
   background-position: center;
-  height: 500px;
-  padding: 150px 0;
+  height: 70vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
 }
 
 .banner h1 {
