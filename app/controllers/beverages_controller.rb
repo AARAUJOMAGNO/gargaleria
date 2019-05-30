@@ -4,7 +4,11 @@ class BeveragesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    @beverages = Beverage.all
+    if params[:query].present?
+      @beverages = Beverage.global_search(params[:query])
+    else
+      @beverages = Beverage.all
+    end
   end
 
   def show

@@ -8,4 +8,11 @@ class User < ApplicationRecord
   has_many :orders
 
   mount_uploader :photo, PhotoUploader
+
+  include PgSearch
+  pg_search_scope :global_search,
+                  against: [:name, :genre, :category, :brand],
+                  using: {
+                    tsearch: { prefix: true }
+                  }
 end
