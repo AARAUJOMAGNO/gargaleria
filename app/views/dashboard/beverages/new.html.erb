@@ -6,3 +6,7 @@
   <% end  %>
   <%= link_to 'Return', dashboard_beverages_path, class:"btn btn-primary" %>
 </div>
+
+<%= javascript_tag do %>
+  <%= render(:partial => 'shared/category_name', :handlers => [:erb], :formats => [:js]) %>
+<% end %>
