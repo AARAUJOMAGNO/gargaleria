@@ -43,7 +43,7 @@
             <% unless current_user.seller %>
               <%= link_to "Histories", dashboard_beverages_path, class: "dropdown-item" %>
             <% end %>
-            <%= link_to "Another action", "#", class: "dropdown-item" %>
+            <%= link_to "Edit Profile", edit_user_registration_path, class: "dropdown-item" %>
             <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
           </div>
         </li>
