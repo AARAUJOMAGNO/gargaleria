@@ -1,5 +1,6 @@
 class Dashboard::BeveragesController < ApplicationController
   before_action :find_beverages, only: %i[show edit update destroy]
+  skip_before_action :verify_authenticity_token
 
   def index
     @beverages = current_user.beverages
@@ -13,8 +14,17 @@ class Dashboard::BeveragesController < ApplicationController
 
   def new
     @beverage = Beverage.new
-    @categories = Beverage.pluck(:category).uniq
-    @categories << "Other"
+
+    # @categories = Beverage.pluck(:category).uniq
+    # @categories << "Other"
+  end
+
+  def get_categories
+    @categories = Beverage.where(genre: params[:genre].downcase).pluck(:category).uniq
+    # render :json => @categories.map { |c| { category: c.category } }
+    respond_to do |format|
+      format.json { render json: @categories, status: 200 }
+    end
   end
 
   def create
