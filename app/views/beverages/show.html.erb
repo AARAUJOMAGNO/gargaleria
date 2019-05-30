@@ -1,11 +1,6 @@
-<%= render 'shared/navbar_intern' %>
-<div class="container">
+<!-- <div></div> render 'shared/navbar_intern'</div> -->
+<!-- <div class="container">
   <div style="display: flex; flex-direction: column;">
-  <div>
-    <% if @beverage.photo %>
-      <%= cl_image_tag @beverage.photo, id:"beverage-img-show"%>
-    <% end %>
-  </div>
   <div>
   <%= @beverage.name %>
   </div>
@@ -18,4 +13,65 @@
   <%= link_to 'Return', beverages_path, class:"btn btn-primary" %>
   </div>
   </div>
+</div> -->
+
+<div class="show-general">  <!-- ## Div geral da show -->
+  <div class="show-nav">
+    <%= render 'shared/navbar_intern'  %>
+  </div> <!--Fechamento do navbar intern-->
+
+  <div class="show-content" style=" display: flex; justify-content: center; align-items: center; height: 100vh; padding-bottom: 40px">
+    <div class="show-content-product" style="width: 80vw; height: 70vh; display: flex; flex-direction: row; justify-content: center; align-items: center; padding:50px ; margin-top: -140px">
+      <div class="show-product-photo " style="width: 50vw; height: 50vh; justify-content: space-between; align-items: center; border">
+
+         <%= cl_image_tag(@beverage.photo, class:"image-show", crop: :fill) %>
+
+
+      </div> <!-- fechamento product photo -->
+
+      <div class="show-product-detail col-6" style="width: 50vw; height: 50vh; padding-left: 50px">
+
+        <div class="show-product-description" style=" display: flex;
+flex-direction: column;">
+
+          <div class="title-description" style="padding-bottom: 10px">
+            <h1> <%= @beverage.name %> </h1>
+
+          </div> <!-- ##fechamento do tittle description -->
+
+          <div class="description" style="padding-bottom: 10px">
+            <p> <%= @beverage.description %> <p>
+
+          </div>
+
+          <div class="price">
+            <p> R$<%= @beverage.price %> <p>
+          </div>
+
+          <div class="quantity">
+           <p> Quantidade Disponivel <%= @beverage.stock %> <p>
+
+          </div>
+
+
+           <div class="show-product-buy" style="display: flex;
+flex-direction: column;">
+
+              <div  style="align-items: right float: right">
+              <% unless @beverage.user == current_user %>
+                <%= link_to "Buy", beverages_buy_path(@beverage),class:"btn btn-warning" %>
+              <% end %>
+              </div> <!-- ## Botao de comprar -->
+          </div> <!-- ##fechamento do show product buy -->
+        </div>
+      </div>
+    </div> <!-- ##fechamento div do content product -->
+  </div> <!-- ##fechamento div content -->
+
+</div> <!-- ##fechamento do div show -->
+
+
+
 </div>
+
+
