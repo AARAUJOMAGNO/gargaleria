@@ -9,14 +9,11 @@ const fetchCategories = (event) => {
     data: {"genre": `${event.currentTarget.value}`},
     dataType: "json",
     type: "POST",
-    success: function(data) {
+    success: (data) => {
       categoriesSelector.innerHTML = '<option value=""></option>'
-      data.forEach(function(category){
+      data.forEach((category) => {
         categoriesSelector.insertAdjacentHTML('beforeend', `<option value="${category}">${category}</option>`);
       });
-    },
-    error: function(data) {
-      console.log("Error");
     }
   });
 };
