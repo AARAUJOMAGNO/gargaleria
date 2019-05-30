@@ -5,9 +5,9 @@ class BeveragesController < ApplicationController
 
   def index
     if params[:query].present?
-      @beverages = Beverage.global_search(params[:query])
+      @beverages = Beverage.global_search(params[:query]).page(params[:page]).per(9)
     else
-      @beverages = Beverage.all
+      @beverages = Beverage.page(params[:page]).per(9)
     end
   end
 
