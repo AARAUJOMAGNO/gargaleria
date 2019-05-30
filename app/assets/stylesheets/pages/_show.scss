@@ -1,4 +1,43 @@
-#beverage-img-show{
-  width: 300px;
-  height: 200px;
+// #beverage-img-show{
+//   width: 300px;
+//   height: 200px;
+// }
+.show-general{
+display: flex;
+flex-direction: column;
+width: 100vw;
 }
+
+.show-nav{
+
+}
+
+.show-content{
+  display:flex;
+  justify-content:center;
+  align-items: center;
+  width: 100vw;
+
+}
+
+.show-content-product{
+  display:flex;
+  justify-content:center;
+  align-items: center;
+  width: 600px;
+}
+
+.show-product-photo{
+
+  width: 200px;
+
+}
+
+.show-product-detail{
+
+  width:200px;
+}
+
+
+
+
