@@ -25,6 +25,8 @@ class BeveragesController < ApplicationController
     @order.user = current_user
     @order.beverage = @beverage
     if @order.save
+      @beverage.stock -= @order.quantity
+      @beverage.save
       redirect_to beverages_seller_path(@order)
     else
       render :buy
