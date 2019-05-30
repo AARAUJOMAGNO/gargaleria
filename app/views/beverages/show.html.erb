@@ -1,11 +1,6 @@
-<%= render 'shared/navbar_intern' %>
-<div class="container">
+<!-- <div></div> render 'shared/navbar_intern'</div> -->
+<!-- <div class="container">
   <div style="display: flex; flex-direction: column;">
-  <div>
-    <% if @beverage.photo %>
-      <%= cl_image_tag @beverage.photo, id:"beverage-img-show"%>
-    <% end %>
-  </div>
   <div>
   <%= @beverage.name %>
   </div>
@@ -18,4 +13,106 @@
   <%= link_to 'Return', beverages_path, class:"btn btn-primary" %>
   </div>
   </div>
+</div> -->
+
+<div class="show-general" style="border:1px solid black;">  <!-- ## Div geral da show -->
+  <div class="show-nav" style="border:1px solid black;">
+
+     <div style="display: flex; flex-direction: row; justify-content: space-between; color:white;">
+      <div style="display:flex; justify-content:center; align-items:center;width: 20vw;">
+        <%= link_to root_path, class: "navbar-brand" do %>
+        <%= image_tag "logo_gargaleria_laranja", class: 'logo' %>
+      <% end %>
+      </div>
+      <div style="width: 20vw;">
+        <ul style="display: flex; flex-direction: row; justify-content: space-around; align-items: center; margin-top: 25px;">
+          <% if user_signed_in? %>
+            <% if current_user.seller %>
+              <li class="nav-item active" style="display: inline;">
+                <%= link_to "Dashboard", dashboard_beverages_path, id:"link_dashboard" %>
+              </li>
+            <% else %>
+              <li class="nav-item active" style="display: inline;">
+                <%= link_to "Become a Seller", become_seller_path, id:"link_seller" %>
+              </li>
+            <% end %>
+            <li class="nav-item dropdown" style="display: inline;">
+              <%= image_tag "https://kitt.lewagon.com/placeholder/users/aaraujomagno", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                <% unless current_user.seller %>
+                  <%= link_to "Histories", dashboard_beverages_path, class: "dropdown-item" %>
+                <% end %>
+                <%= link_to "Another action", "#", class: "dropdown-item" %>
+                <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+              </div>
+            </li>
+          <% else %>
+            <li class="nav-item" style="display: inline;">
+              <%= link_to "Login", new_user_session_path, id:"link_login" %>
+            </li>
+          <% end %>
+        </ul>
+      </button>
+      </div>
+    </div>
+
+  </div> <!--Fechamento do navbar intern-->
+
+  <div class="show-content" style="border:1px solid black; display: flex; justify-content: center; align-items: center; height: 100vh;">
+    <div class="show-content-product" style="border:1px solid red; width: 80vw; height: 70vh; display: flex; flex-direction: row; justify-content: center; align-items: center; padding: 50px;">
+      <div class="show-product-photo " style="10px; border:1px solid red; width: 50vw; height: 50vh; justify-content: space-between; align-items: center; border">
+
+         <%= cl_image_tag(@beverage.photo, class:"image-show", crop: :fill) %>
+
+
+      </div> <!-- fechamento product photo -->
+
+      <div class="show-product-detail col-6" style="border:1px solid green; width: 50vw; height: 50vh;">
+
+        <div class="show-product-description" style=" display: flex;
+flex-direction: column;">
+
+          <div class="title-description" style="padding-bottom: 10px">
+            <h1> <%= @beverage.name %> </h1>
+
+          </div> <!-- ##fechamento do tittle description -->
+
+          <div class="description" style="padding-bottom: 10px">
+            <p> <%= @beverage.description %> <p>
+
+          </div>
+
+          <div class="price">
+            <p> R$<%= @beverage.price %> <p>
+          </div>
+
+          <div class="quantity">
+           <p> Quantidade Disponivel <%= @beverage.stock %> <p>
+
+          </div>
+
+
+           <div class="show-product-buy" style="display: flex;
+flex-direction: column;">
+
+            <div class="price" style="padding-bottom: 10px ">
+               <%= @beverage.description %>
+            </div> <!-- ##fechamento price -->
+              <div  style="align-items: right float: right">
+              <% unless @beverage.user == current_user %>
+                <%= link_to "Buy", beverages_buy_path(@beverage),class:"btn btn-warning" %>
+              <% end %>
+              </div> <!-- ## Botao de comprar -->
+          </div> <!-- ##fechamento do show product buy -->
+        </div>
+      </div>
+    </div> <!-- ##fechamento div do content product -->
+  </div> <!-- ##fechamento div content -->
+
+</div> <!-- ##fechamento do div show -->
+
+
+
 </div>
+
+
