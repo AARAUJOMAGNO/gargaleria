@@ -10,4 +10,11 @@ class Beverage < ApplicationRecord
   validates :brand, presence: true
 
   mount_uploader :photo, PhotoUploader
+
+  include PgSearch
+  pg_search_scope :global_search,
+                  against: [:name, :genre, :category, :brand, :description],
+                  using: {
+                    tsearch: { prefix: true }
+                  }
 end
