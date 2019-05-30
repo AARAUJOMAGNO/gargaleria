@@ -5,6 +5,16 @@
     <%# end %>
   </div>
   <div style="width: 45vw; display: flex; flex-direction: row; align-items: center;">
+    <div class="search">
+      <%= form_tag beverages_path, method: :get, style: "width: 25vw; opacity: 0.8;" do %>
+      <%= text_field_tag :query,
+        params[:query],
+        class: "form-control search",
+        placeholder: "Search beverages"
+      %>
+      <% end %>
+      <span class="fa fa-search"></span>
+    </div>
     <!-- <div>
       <ul style="margin-top: 25px;">
         <li style="display: inline;">CERVEJAS</li>
