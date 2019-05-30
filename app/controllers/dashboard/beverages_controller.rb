@@ -12,6 +12,7 @@ class Dashboard::BeveragesController < ApplicationController
   def new
     @beverage = Beverage.new
     @categories = Beverage.pluck(:category).uniq
+    @categories << "Other"
   end
 
   def create
