@@ -1,21 +1,42 @@
-<%= simple_form_for @user, url: update_user_path do |f| %>
-    <%= f.input :first_name,
-                required: true,
-                input_html: { autocomplete: "current-first_name" } %>
-    <%= f.input :last_name,
-                required: true,
-                input_html: { autocomplete: "current-last_name" } %>
-    <%= f.input :address,
-                required: true,
-                input_html: { autocomplete: "current-address" } %>
-    <%= f.input :phone,
-                required: true,
-                input_html: { autocomplete: "current-phone" } %>
-    <%= f.input :cnpj,
-                required: true,
-                input_html: { autocomplete: "current-cnpj" } %>
-    <%= f.input :company,
-                required: true,
-                input_html: { autocomplete: "current-company" } %>
-    <%= f.button :submit, "Become a Seller" %>
-<% end %>
+<div style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+<div style="background-image: url('<%= image_path 'login.jpg' %>'); width:100vw; height: 60vh; display: flex; flex-direction: column; justify-content: center; align-items: center; color: white; background-size: cover;">
+  <div style="margin-bottom: 40px;">
+    <%= image_tag "logo_gargaleria_laranja", class: 'logo' %>
+  </div>
+  <div style="margin-bottom: 180px;">
+    <h1>Venha comprar uma boa CERVA!</h1>
+    <p>Faça seu cadastro e aproveita as vantagens de ser membro da comunidade cervejeira</p>
+  </div>
+</div>
+
+<div style="display: flex; flex-direction: column; width: 60vw; justify-content: center; align-items: center;margin-top: -150px;">
+  <div style="width: 40vw; background-color:#f4f4f4; padding: 40px;">
+
+  <!-- <h2>Edit</h2> -->
+
+  <%= simple_form_for @user, url: update_user_path do |f| %>
+      <%= f.input :first_name,
+                  required: true,
+                  input_html: { autocomplete: "current-first_name" } %>
+      <%= f.input :last_name,
+                  required: true,
+                  input_html: { autocomplete: "current-last_name" } %>
+      <%= f.input :address,
+                  required: true,
+                  input_html: { autocomplete: "current-address" } %>
+      <%= f.input :phone,
+                  required: true,
+                  input_html: { autocomplete: "current-phone" } %>
+      <%= f.input :cnpj,
+                  required: true,
+                  input_html: { autocomplete: "current-cnpj" } %>
+      <%= f.input :company,
+                  required: true,
+                  input_html: { autocomplete: "current-company" } %>
+
+      <div class="form-actions" style="margin-bottom: 20px; display: flex; justify-content: space-between; align-items: center;">
+        <%= f.button :submit, "Become a Seller", id:"link_login_form" %>
+        <%= link_to 'Return', beverages_path, class:"card-sm" %>
+      </div>
+
+  <% end %>
