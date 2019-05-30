@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: 'beverages#index'
+  get 'about', to: 'pages#about', as: 'about'
+
   resources :beverages, only: %i[index show]
 
   get 'beverages/:id/buy', to: "beverages#buy", as: 'beverages_buy'
