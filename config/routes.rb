@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get 'beverages/:id/buy', to: "beverages#buy", as: 'beverages_buy'
   post 'beverages/:id/finalize', to: "beverages#finalize", as: 'beverages_finalize'
   get 'orders/:id/finalize', to: "beverages#seller", as: 'beverages_seller'
+  get 'about', to: "beverages#about"
 
   get 'become_seller', to: "users#become_seller", as: 'become_seller'
   patch 'update_user', to: "users#update_user", as: 'update_user'
