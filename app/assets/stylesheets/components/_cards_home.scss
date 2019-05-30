@@ -1,0 +1,17 @@
+.card-title {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  width: 85vw;
+}
+
+.card-sm {
+  text-decoration: none !important;
+  color: grey
+}
+
+.card-sm:hover {
+  color: #f49b20;
+  transition: 1s;
+}

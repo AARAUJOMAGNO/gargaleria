@@ -1,32 +1,21 @@
-<div class="navbar-lewagon" style="display: flex; flex-direction: row; justify-content: space-between; color:white;">
-  <div style="display:flex; justify-content:center; align-items:center;width: 40vw;">
-    <%= link_to root_path, class: "navbar-brand" do %>
-    <%= image_tag "logo_gargaleria_laranja", class: 'logo' %>
-  <% end %>
+<div class="navbar-lewagon navbar-adjust container-top">
+  <div>
+    <%= link_to "/" do  %>
+      <%= image_tag "logo_gargaleria_laranja", class: 'logo' %>
+    <% end %>
   </div>
-  <div style="width: 60vw; display: flex; flex-direction: row; align-items: center;">
-    <div>
-      <ul style="margin-top: 25px;">
-        <!-- <li style="display: inline;">CERVEJAS</li>
-        <li style="display: inline; margin-left:20px;">CACHAÇAS</li> -->
-        <!-- <li style="display: inline; margin-left:20px;">CADASTRE-SE</li> -->
-        <!-- <li style="display: inline; margin-left:20px;">LOGOUT</li> -->
-      </ul>
-    </div>
-  </div>
-  <div style="width: 20vw;">
-    <ul style="display: flex; flex-direction: row; justify-content: space-around; align-items: center; margin-top: 25px;">
+  <div class="dashboard">
+    <ul>
       <% if user_signed_in? %>
         <% if current_user.seller %>
-          <li class="nav-item active" style="display: inline;">
+          <li>
             <%= link_to "Dashboard", dashboard_beverages_path, id:"link_dashboard" %>
-          </li>
         <% else %>
-          <li class="nav-item active" style="display: inline;">
+          <li>
             <%= link_to "Become a Seller", become_seller_path, id:"link_seller" %>
           </li>
         <% end %>
-        <li class="nav-item dropdown" style="display: inline;">
+        <li>
           <%= image_tag "https://kitt.lewagon.com/placeholder/users/aaraujomagno", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
             <% unless current_user.seller %>
@@ -37,7 +26,7 @@
           </div>
         </li>
       <% else %>
-        <li class="nav-item" style="display: inline;">
+        <li>
           <%= link_to "Login", new_user_session_path, id:"link_login" %>
         </li>
       <% end %>
@@ -46,51 +35,31 @@
   </div>
 </div>
 <div class="banner" id="banner">
-  <div class="container">
-    <h1>Experiência <strong>única</strong></h1>
+  <div class="container-top">
+    <h1 style="margin-bottom: 10px; margin-top: 50px;">Experiência <strong>única</strong></h1>
     <p>A cerveja <strong>Freizão&Co.</strong> acaba de lançar<br> a Indian Pale Ale mais esperada do ano. <br>Seja um dos primeiros a comprar essa maravilha.</p>
     <!-- <a class="btn button" href="#">Comprar</a> -->
   </div>
 </div>
-<div style="display: flex; flex-direction: column; ">
 
-<div style="display: flex; flex-direction: row; justify-content: center;">
-  <div style="display: flex; flex-direction: row; justify-content: space-around; flex-wrap: wrap; width: 85vw;">
-    <% @beverages.each do |beverage| %>
-    <% if beverage.published %>
-      <div style="display: flex; flex-direction: column; justify-content:center; align-items: center; ">
-      <div style="margin-top:20px;">
-        <h4><%= link_to beverage.name, beverage_path(beverage.id)%></h4>
-      </div>
-      <% if beverage.photo.url %>
-        <div style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path beverage.photo, height: 200, width: 300, crop: :fill %>'); width:300px; height: 200px; display: flex; flex-direction: column; justify-content: center; align-items: center; color: white; margin: 10px; background-size: cover;"></div>
-      <% else %>
-          <div style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg); width:300px; height: 200px; display: flex; flex-direction: column; justify-content: center; align-items: center; color: white; margin: 10px; background-size: cover;"></div>
+<div class="container-top">
+  <div class="content">
+    <div class="card-title">
+      <% @beverages.each do |beverage| %>
+      <% if beverage.published %>
+        <div class="content-cards">
+        <div style="margin-top:40px; border-top: 5px solid #9c2c2c;">
+          <p style="margin-top:10px; margin-bottom: 10px; font-weight: bold; font-size: 22px;"><%= link_to beverage.name, beverage_path(beverage.id), class: 'card-sm'  %></p>
+        </div>
+        <% if beverage.photo.url %>
+          <div style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('<%= cl_image_path beverage.photo, height: 200, width: 300, crop: :fill %>'); width:350px; height: 250px; display: flex; flex-direction: column; justify-content: center; align-items: center; color: white; margin: 10px; background-size: cover;"></div>
+        <% else %>
+            <div style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg); width:350px; height: 250px; display: flex; flex-direction: column; justify-content: center; align-items: center; color: white; margin: 10px; background-size: cover; border-radius: 10px; border: 1px solid black;"></div>
+        <% end %>
+        <div><p style="color:grey;"><%= beverage.description %><p></div>
+        </div>
       <% end %>
-      <div><p style="color:grey;">Uma bebida deliciosa, com toques cítricos.<p></div>
-      </div>
     <% end %>
-  <% end %>
+    </div>
   </div>
 </div>
-</div>
-
-<!-- #link_to_beverage{
-  text-decoration: none;
-  color: black;
-  &:hover{
-    text-decoration:none;
-    color: orange;
-}
-} -->
-
-<!-- <div style="display:flex; flex-direction: row; border: 1px solid black; justify-content: center;">
-  <div style="border:1px solid red; display: flex; flex-direction: row; justify-content: center; width: 85vw;">
-    <ul style="width:100vw; display: flex; flex-direction: row; justify-content: space-around;">
-      <li style="display: inline;">Home</li>
-      <li style="display: inline;">Action</li>
-      <li style="display: inline;">Dashboard</li>
-      <li style="display: inline;">Logout</li>
-    </ul>
-  </div>
-</div> -->

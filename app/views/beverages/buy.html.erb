@@ -1,9 +1,9 @@
 <%= render 'shared/navbar_intern' %>
 <div class="container">
   <h1>Comprar produto</h1>
-  <%= @beverage.name %>
+  <%= @beverage.name %><span id="beverage-stock" style="margin-left: 10px;">Stock: <%= @beverage.stock %></span>
   <%= simple_form_for @order, url:beverages_finalize_path(@beverage), method: :post  do |f| %>
-  <%= f.input :quantity %>
-  <%= f.submit 'Finalize', class:"btn btn-primary" %>
+  <%= f.input :quantity, collection: 1..@beverage.stock, include_blank: false  %>
+  <%= f.submit 'Finalize', class:"btn btn-primary", id:"btn-finalize" %>
   <% end %>
 </div>

@@ -9,6 +9,7 @@ class Dashboard::BeveragesController < ApplicationController
   end
 
   def show
+    redirect_to root_path if @beverage.user != current_user
   end
 
   def new
@@ -37,6 +38,7 @@ class Dashboard::BeveragesController < ApplicationController
   end
 
   def edit
+    redirect_to root_path if @beverage.user != current_user
   end
 
   def update
