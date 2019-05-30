@@ -16,7 +16,26 @@
 }
 
 .logo {
-  width: 140px !important;
-  margin-left: 65px;
+  width: 200px !important;
+  // margin-left: 65px;
+  // display:flex;
+  // justify-content:center;
+  // align-items:center;
+  // width: 40vw;
 }
 
+.navbar-lewagon.navbar-adjust {
+  padding-top: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  color:white;
+}
+
+#navbarDropdown {
+  margin-left: 15px;
+}
+
+.dashboard ul li {
+  display: inline;
+}
