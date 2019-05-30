@@ -1,43 +1,53 @@
 <%= render 'shared/navbar_intern' %>
-<h1>View dashboard</h1>
-<% if current_user.seller %>
-<div>
-  <% @beverages.each do |beverage| %>
-    <% if beverage.published %>
-      <% if beverage.photo.url %>
-        <%= cl_image_tag beverage.photo, height: 150, width: 200, crop: :fill %>
+<div class="container">
+  <h1>View dashboard</h1>
+  <% if current_user.seller %>
+  <div>
+    <% @beverages.each do |beverage| %>
+      <% if beverage.published %>
+        <div style="margin-bottom:10px;">
+        <div>
+        <% if beverage.photo.url %>
+          <%= cl_image_tag beverage.photo, height: 150, width: 200, crop: :fill %>
+        <% end %>
+        </div>
+        <div>
+        <%= link_to beverage.name, dashboard_beverage_path(beverage) %>
+        </div>
+        <div>
+        <%= link_to 'delete', dashboard_beverage_path(beverage), method: :delete, data: {confirm:'are you sure?'}, class:"btn btn-danger" %>
+        </div>
+        </div>
       <% end %>
-      <%= link_to beverage.name, dashboard_beverage_path(beverage) %>
-      <%= link_to 'delete', dashboard_beverage_path(beverage), method: :delete, data: {confirm:'are you sure?'}, class:"btn btn-danger" %>
     <% end %>
+  </div>
   <% end %>
-</div>
-<% end %>
-<div>
-  <h3>Purchase history</h3>
-  <% @orders_buy.each do |buy| %>
-  <%= link_to buy.beverage.name, dashboard_order_path(buy.id)%>
-    Status: <%= buy.status %>
-    <%= buy.created_at.strftime("%d/%m/%Y") %>
-  <% end %>
-</div>
-<% if current_user.seller %>
-<div>
-  <h3>Sales history</h3>
-  <% @orders_sell.each do |sell| %>
-    <% sell.each do |item|  %>
-      <%= link_to item.beverage.name, dashboard_order_path(item.id)%>
-      <%= item.status%>
-      <%= item.created_at.strftime("%d/%m/%Y") %>
+  <div>
+    <h3>Purchase history</h3>
+    <% @orders_buy.each do |buy| %>
+    <%= link_to buy.beverage.name, dashboard_order_path(buy.id)%>
+      Status: <%= buy.status %>
+      <%= buy.created_at.strftime("%d/%m/%Y") %>
+    <% end %>
+  </div>
+  <% if current_user.seller %>
+  <div>
+    <h3>Sales history</h3>
+    <% @orders_sell.each do |sell| %>
+      <% sell.each do |item|  %>
+        <%= link_to item.beverage.name, dashboard_order_path(item.id)%>
+        <%= item.status%>
+        <%= item.created_at.strftime("%d/%m/%Y") %>
+      <% end  %>
     <% end  %>
-  <% end  %>
-</div>
+  </div>
 <% end %>
 
 <div>
 <% if current_user.seller %>
-  <%= link_to 'Create', new_dashboard_beverage_path %>
+  <%= link_to 'Create', new_dashboard_beverage_path, class:"btn btn-warning" %>
 <% end %>
 
-<%= link_to 'Return', beverages_path %>
+<%= link_to 'Return', beverages_path, class:"btn btn-primary" %>
+</div>
 </div>

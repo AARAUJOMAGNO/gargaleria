@@ -4,9 +4,9 @@
   <%= f.input :price, label: "Insert price" %>
   <%= f.input :stock, label: "Insert stock" %>
   <%= f.input :description, label: "Insert description" %>
-  <%= f.input :genre, label: "Insert genre" %>
+  <%= f.input :genre, as: :radio_buttons, collection: [['Cachaça', 'cachaça'], ['Beer', 'cerveja']], label_method: :first, value_method: :last, wrapper: :vertical_collection_inline %>
   <%= f.input :category, label: "Insert category" %>
   <%= f.input :brand, label: "Insert brand" %>
-  <%= f.input :photo %>
+  <%= f.input :photo, label: "Photo" %>
   <%= f.input :photo_cache, as: :hidden %>
   <%= f.submit 'Send', class:"btn btn-primary" %>
