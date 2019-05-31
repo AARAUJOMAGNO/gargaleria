@@ -39,7 +39,7 @@ flex-direction: column;">
            <div class="show-product-buy" style="display: flex;
 flex-direction: column;">
 
-              <div  style="align-items: right float: right">
+              <div >
               <% unless @beverage.user == current_user %>
                 <%= link_to "Buy", beverages_buy_path(@beverage),class:"btn btn-warning" %>
               <% end %>
