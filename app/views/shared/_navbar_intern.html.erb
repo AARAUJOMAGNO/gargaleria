@@ -21,7 +21,7 @@
             <% if current_user.seller %>
               <%= link_to "Dashboard", dashboard_beverages_path, id:"link_dashboard", class: "dropdown-item" %>
             <% else %>
-              <%= link_to "Become a Seller", become_seller_path, id:"link_seller", class: "dropdown-item" %>
+              <%= link_to "Become a Seller", become_seller_path, class: "dropdown-item" %>
             <% end %>
             <%= link_to "Edit Profile", edit_user_registration_path, class: "dropdown-item" %>
             <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
