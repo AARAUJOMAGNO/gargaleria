@@ -1,11 +1,13 @@
 <div style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
 <div style="background-image: url('<%= image_path 'login.jpg' %>'); width:100vw; height: 60vh; display: flex; flex-direction: column; justify-content: center; align-items: center; color: white; background-size: cover;">
   <div style="margin-bottom: 40px;">
-    <%= image_tag "logo_gargaleria_laranja", class: 'logo' %>
+    <%= link_to root_path, class: "navbar-brand" do %>
+      <%= image_tag "logo_gargaleria_laranja", class: 'logo' %>
+    <% end %>
   </div>
   <div style="margin-bottom: 180px;">
-    <h1>Venha comprar uma boa CERVA!</h1>
-    <p>Faça seu cadastro e aproveita as vantagens de ser membro da comunidade cervejeira</p>
+    <h1>Become a certified seller in <span style="color: #F49B28">Gargaleria!</span></h1>
+    <p class="text-center">Get visibility and share your products with our clients</p>
   </div>
 </div>
 
@@ -28,6 +30,7 @@
                   required: true,
                   input_html: { autocomplete: "current-phone" } %>
       <%= f.input :cnpj,
+                  label: "CNPJ",
                   required: true,
                   input_html: { autocomplete: "current-cnpj" } %>
       <%= f.input :company,

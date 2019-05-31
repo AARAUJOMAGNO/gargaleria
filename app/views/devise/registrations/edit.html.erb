@@ -6,8 +6,8 @@
       <% end %>
     </div>
     <div style="margin-bottom: 180px;">
-      <h1>Coloque o seu produto em nosso site!</h1>
-      <p>Tenha visibilidade e compartilhe suas criações com nossos visitantes</p>
+      <h2>Keep your profile updated</h2>
+      <p class="text-center">Avoid problems with your orders</p>
     </div>
   </div>
 
@@ -23,6 +23,18 @@
     <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
     <% end %>
 
+    <%= f.input :first_name %>
+    <%= f.input :last_name %>
+    <%= f.input :birthdate, label: "Birthday" %>
+    <%= f.input :address %>
+    <%= f.input :cpf, label: "CPF" %>
+    <%= f.input :photo, label: "Profile Picture" %>
+    <%= f.input :photo_cache, as: :hidden %>
+    <%= f.input :current_password,
+                label: "Password",
+                hint: "We need your current password to confirm the changes",
+                required: true,
+                input_html: { autocomplete: "current-password" } %>
     <%= f.input :password,
                 label: "New password",
                 hint: "Leave it blank if you don't want to change it",
@@ -32,17 +44,6 @@
                 label: "Confirm new password",
                 required: false,
                 input_html: { autocomplete: "new-password" } %>
-    <%= f.input :current_password,
-                hint: "We need your current password to confirm your changes",
-                required: true,
-                input_html: { autocomplete: "current-password" } %>
-    <%= f.input :first_name %>
-    <%= f.input :last_name %>
-    <%= f.input :birthdate %>
-    <%= f.input :address %>
-    <%= f.input :cpf %>
-    <%= f.input :photo, label: "Profile Picture" %>
-    <%= f.input :photo_cache, as: :hidden %>
   </div>
 
   <div class="form-actions" style="display:flex; flex-direction:row; justify-content:space-between;">
