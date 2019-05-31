@@ -14,14 +14,11 @@ class Dashboard::BeveragesController < ApplicationController
 
   def new
     @beverage = Beverage.new
-
-    # @categories = Beverage.pluck(:category).uniq
-    # @categories << "Other"
   end
 
   def get_categories
     @categories = Beverage.where(genre: params[:genre].downcase).pluck(:category).uniq
-    # render :json => @categories.map { |c| { category: c.category } }
+    @categories << "Other"
     respond_to do |format|
       format.json { render json: @categories, status: 200 }
     end

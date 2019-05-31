@@ -1,4 +1,4 @@
-// const inputCategory = document.getElementById('beverage_category');
+const inputCategory = document.getElementById('beverage_category');
 const cachacaButton = document.getElementById('beverage_genre_cachaça');
 const cervejaButton = document.getElementById('beverage_genre_cerveja');
 
@@ -10,7 +10,7 @@ const fetchCategories = (event) => {
     dataType: "json",
     type: "POST",
     success: (data) => {
-      categoriesSelector.innerHTML = '<option value=""></option>'
+      categoriesSelector.innerHTML = ''
       data.forEach((category) => {
         categoriesSelector.insertAdjacentHTML('beforeend', `<option value="${category}">${category}</option>`);
       });
@@ -21,18 +21,18 @@ const fetchCategories = (event) => {
 cachacaButton.addEventListener('click', (event) => { fetchCategories(event) });
 cervejaButton.addEventListener('click', (event) => { fetchCategories(event) });
 
-// inputCategory.addEventListener('change', (event) => {
-//   if (inputCategory.value === 'Other') {
-//     inputCategory.classList.id = 'unselected_input'
-//     inputCategory.insertAdjacentHTML("afterend" ,`<input type="text" class="form-control extrainput" name="beverage[category]" id="beverage_category">`);
-//   } else {
-//     if (document.querySelector(".extrainput")) {
-//       const extraInput = document.querySelector('.extrainput');
+inputCategory.addEventListener('change', (event) => {
+  if (inputCategory.value === 'Other') {
+    inputCategory.classList.id = 'unselected_input'
+    inputCategory.insertAdjacentHTML("afterend" ,`<input type="text" class="form-control extrainput mt-2" placeholder="Add category" name="beverage[category]" id="beverage_category">`);
+  } else {
+    if (document.querySelector(".extrainput")) {
+      const extraInput = document.querySelector('.extrainput');
 
-//       extraInput.id = 'unselected_input';
-//       extraInput.classList.add('d-none');
-//       inputCategory.id = 'beverage_category';
-//     }
-//   }
-// });
+      extraInput.id = 'unselected_input';
+      extraInput.classList.add('d-none');
+      inputCategory.id = 'beverage_category';
+    }
+  }
+});
 

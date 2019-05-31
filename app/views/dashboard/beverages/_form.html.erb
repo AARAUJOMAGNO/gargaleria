@@ -5,10 +5,10 @@
     <%= f.input :price %>
     <%= f.input :stock %>
   </div>
-  <%= f.input :description, label: "Insert description" %>
+  <%= f.input :description %>
   <%= f.input :genre, as: :radio_buttons, collection: [['Cachaça', 'cachaça'], ['Beer', 'cerveja']], label_method: :first, value_method: :last, wrapper: :vertical_collection_inline, class: "beverage-genre", checked: 0 %>
-  <%= f.input :category, collection: [], include_blank: false %>
-  <%= f.input :brand, label: "Insert brand" %>
+  <%= f.input :category, collection: [], placeholder: "" %>
+  <%= f.input :brand %>
   <%= f.input :photo, label: "Photo" %>
   <%= f.input :photo_cache, as: :hidden %>
   <div style="display:flex; flex-direction:row; justify-content: space-between;">
