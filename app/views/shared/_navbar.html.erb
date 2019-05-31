@@ -1,67 +1,34 @@
-<!-- <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <%= link_to root_path, class: "navbar-brand" do %>
-    <%= image_tag "logo_gargaleria_laranja", class: 'logo'  %>
-  <% end %>
-
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <% if user_signed_in? %>
-        <% if current_user.seller %>
-          <li class="nav-item active">
-            <%= link_to "Dashboard", dashboard_beverages_path, class: "nav-link" %>
-          </li>
-        <% else %>
-          <li class="nav-item active">
-            <%= link_to "Become a Seller", become_seller_path, class: "nav-link" %>
-          </li>
-        <% end %>
-        <li class="nav-item dropdown">
-          <%= image_tag "https://kitt.lewagon.com/placeholder/users/aaraujomagno", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-            <% unless current_user.seller %>
-              <%= link_to "Histories", dashboard_beverages_path, class: "dropdown-item" %>
-            <% end %>
-            <%= link_to "Another action", "#", class: "dropdown-item" %>
-            <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
-          </div>
-        </li>
-      <% else %>
-        <li class="nav-item">
-          <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-        </li>
+<div style="display: flex; flex-direction: row; justify-content: space-between; color:white; width: 75vw;">
+  <div style="display:flex; justify-content:flex-start; align-items:center; width: 25vw;">
+    <%#= link_to root_path, class: "navbar-brand" do %>
+      <%= image_tag "logo_gargaleria_laranja", class: 'logo' %>
+    <%# end %>
+  </div>
+  <div style="width: 45vw; display: flex; flex-direction: row; align-items: center;">
+    <div class="search">
+      <%= form_tag beverages_path, method: :get, style: "width: 25vw; opacity: 0.8;" do %>
+      <%= text_field_tag :query,
+        params[:query],
+        class: "form-control search",
+        placeholder: "Search beverages"
+      %>
       <% end %>
-    </ul>
-  </div>
-</div> -->
-<div class="navbar-lewagon" style="display: flex; flex-direction: row; justify-content: space-between; color:white;">
-  <div style="display:flex; justify-content:center; align-items:center;width: 20vw;">
-    <%= link_to root_path, class: "navbar-brand" do %>
-    <%= image_tag "logo_gargaleria_laranja", class: 'logo' %>
-  <% end %>
-  </div>
-  <div style="width: 60vw; display: flex; flex-direction: row; align-items: center;">
-    <div>
+      <span class="fa fa-search"></span>
+    </div>
+    <!-- <div>
       <ul style="margin-top: 25px;">
         <li style="display: inline;">CERVEJAS</li>
         <li style="display: inline; margin-left:20px;">CACHAÇAS</li>
         <li style="display: inline; margin-left:20px;">CADASTRE-SE</li>
         <li style="display: inline; margin-left:20px;">LOGOUT</li>
       </ul>
-    </div>
+    </div> -->
   </div>
-  <div style="width: 20vw;">
-    <ul style="display: flex; flex-direction: row; justify-content: space-around; align-items: center; margin-top: 25px;">
+  <div style="width: 30vw; display: flex; align-items: center; justify-content: flex-end;">
+    <div>
+    <ul style="margin-right: 25px; margin-top: 20px;">
       <% if user_signed_in? %>
-        <% if current_user.seller %>
-          <li class="nav-item active" style="display: inline;">
-            <%= link_to "Dashboard", dashboard_beverages_path, id:"link_dashboard" %>
-          </li>
-        <% else %>
+        <% unless current_user.seller %>
           <li class="nav-item active" style="display: inline;">
             <%= link_to "Become a Seller", become_seller_path, id:"link_seller" %>
           </li>
@@ -69,10 +36,12 @@
         <li class="nav-item dropdown" style="display: inline;">
           <%= image_tag "https://kitt.lewagon.com/placeholder/users/aaraujomagno", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-            <% unless current_user.seller %>
+            <% if current_user.seller %>
+              <%= link_to "Dashboard", dashboard_beverages_path, class: "dropdown-item", id:"link_dashboard" %>
+            <% else %>
               <%= link_to "Histories", dashboard_beverages_path, class: "dropdown-item" %>
             <% end %>
-            <%= link_to "Another action", "#", class: "dropdown-item" %>
+            <%= link_to "Edit Profile", edit_user_registration_path, class: "dropdown-item" %>
             <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
           </div>
         </li>
@@ -82,6 +51,6 @@
         </li>
       <% end %>
     </ul>
-  </button>
+    </div>
   </div>
 </div>

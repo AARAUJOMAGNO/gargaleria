@@ -12,3 +12,24 @@
     transition: 0.5s;
   }
 }
+
+#link_login_form{
+  border-radius: 5px;
+  border: 2px solid orange;
+  padding: 5px 10px;
+  background: orange;
+  color: white;
+  font-weight: bold;
+  font-size: 15px;
+  opacity: 0.8;
+  &:hover{
+    text-decoration: none;
+    opacity: 1;
+    transition: 0.5s;
+  }
+}
+
+// input[type=text]:focus{
+//   outline: none;
+//   box-shadow: 0 0 0 2px orange;
+// }

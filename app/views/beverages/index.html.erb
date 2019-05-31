@@ -39,8 +39,9 @@
   </div>
 </div>
 <div class="banner" id="banner">
-  <div class="container-top">
-    <h1 style="margin-bottom: 10px; margin-top: 50px;">Experiência <strong>única</strong></h1>
+  <%= render './shared/navbar' %>
+  <div style="width: 75vw; margin-bottom:150px;">
+    <h1>Experiência <strong>única</strong></h1>
     <p>A cerveja <strong>Freizão&Co.</strong> acaba de lançar<br> a Indian Pale Ale mais esperada do ano. <br>Seja um dos primeiros a comprar essa maravilha.</p>
     <!-- <a class="btn button" href="#">Comprar</a> -->
   </div>
@@ -66,4 +67,8 @@
     <% end %>
     </div>
   </div>
+</div>
+
+<div class="d-flex justify-content-center">
+  <%= paginate @beverages %>
 </div>
