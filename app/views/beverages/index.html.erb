@@ -12,7 +12,7 @@
     <div class="card-title">
       <% @beverages.each do |beverage| %>
       <% if beverage.published %>
-        <div class="content-cards">
+        <div class="content-cards" style="width: 350px;">
         <div style="margin-top:40px; border-top: 5px solid #9c2c2c;">
           <p style="margin-top:10px; margin-bottom: 10px; font-weight: bold; font-size: 22px;"><%= link_to beverage.name, beverage_path(beverage.id), class: 'card-sm'  %></p>
         </div>
@@ -21,7 +21,7 @@
         <% else %>
             <div style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg); width:350px; height: 250px; display: flex; flex-direction: column; justify-content: center; align-items: center; color: white; margin: 10px; background-size: cover; border-radius: 10px; border: 1px solid black;"></div>
         <% end %>
-        <div><p style="color:grey;"><%= beverage.description %><p></div>
+        <div><p style="color: grey; height: 48px;"><%= beverage.description %><p></div>
         </div>
       <% end %>
     <% end %>
