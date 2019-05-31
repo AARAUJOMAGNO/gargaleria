@@ -2,6 +2,10 @@ class Dashboard::BeveragesController < ApplicationController
   before_action :find_beverages, only: %i[show edit update destroy]
   skip_before_action :verify_authenticity_token
 
+
+BEER_CATEGORIES = ["IPA", "APA", "Weat", "Red Ale", "Pilsen", "Stout"]
+CACHACA_CATEGORIES = ["Ouro", "Prata", "Premium", "Envelhica"]
+
   def index
     @beverages = current_user.beverages.page(params[:page]).per(4)
     @orders_buy = current_user.orders
@@ -18,6 +22,16 @@ class Dashboard::BeveragesController < ApplicationController
 
   def get_categories
     @categories = Beverage.where(genre: params[:genre].downcase).pluck(:category).uniq
+    if params[:genre].downcase == "cerveja"
+      BEER_CATEGORIES.each do |category|
+        @categories << category
+      end
+    else
+      CACHACA_CATEGORIES.each do |category|
+        @categories << category
+      end
+    end
+
     @categories << "Other"
     respond_to do |format|
       format.json { render json: @categories, status: 200 }
