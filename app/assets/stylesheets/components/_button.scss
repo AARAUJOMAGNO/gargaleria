@@ -14,3 +14,12 @@
     text-decoration: none;
   }
 }
+
+.link_signup{
+  text-decoration: none !important;
+  color: white;
+  margin-right: 10px;
+  &:hover{
+    color:orange;
+  }
+}
