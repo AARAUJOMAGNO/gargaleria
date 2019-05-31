@@ -18,7 +18,11 @@ class BeveragesController < ApplicationController
   end
 
   def buy
-    @order = Order.new
+    unless @beverage.user == current_user
+      @order = Order.new
+    else
+      redirect_to beverages_path
+    end
   end
 
   def finalize
