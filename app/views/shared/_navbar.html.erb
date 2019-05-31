@@ -12,9 +12,7 @@
           class: "form-control search",
           placeholder: "Search beverages"
         %>
-        <%= button_tag do %>
-          <span class="fa fa-search"></span>
-        <% end %>
+        <span class="fa fa-search" style="background-color: rgba(0, 0, 0, 0);"></span>
       <% end %>
     </div>
     <!-- <div>
@@ -37,7 +35,7 @@
         <% end %>
         <li class="nav-item dropdown" style="display: inline;">
           <% if current_user.photo.url %>
-            <%= cl_image_tag (current_user.photo), class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <%= cl_image_tag current_user.photo, height: 40, width: 40, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <% else %>
             <!-- <i class="fas fa-user-circle avatar dropdown-toggle"></i> -->
             <%= image_tag "favicon_gargaleria.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
