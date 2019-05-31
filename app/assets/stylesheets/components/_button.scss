@@ -2,3 +2,15 @@
   background-color:#F49B20;
   color: white;
 }
+
+.btn-dashboard-card-delete{
+  background: #551012;
+  text-decoration: none;
+  padding: 10px 15px;
+  border-radius: 3px;
+  color:white;
+  &:hover{
+    color:orange;
+    text-decoration: none;
+  }
+}

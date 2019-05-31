@@ -16,3 +16,12 @@
 .content-cards div {
   margin-bottom: 10px;
 }
+
+div.overflow-description{
+  height: 100px;
+  overflow: auto;
+}
+
+#read-more{
+  font-weight: bold;
+}
