@@ -10,7 +10,7 @@ const fetchCategories = (event) => {
     dataType: "json",
     type: "POST",
     success: (data) => {
-      categoriesSelector.innerHTML = '<option value=""></option>'
+      categoriesSelector.innerHTML = ''
       data.forEach((category) => {
         categoriesSelector.insertAdjacentHTML('beforeend', `<option value="${category}">${category}</option>`);
       });
