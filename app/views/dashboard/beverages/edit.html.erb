@@ -1,8 +1,22 @@
-<%= render 'shared/navbar_intern' %>
-<div class="container">
-<h1>Update beverage</h1>
+<div style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+  <div style="background-image: url('<%= image_path 'login.jpg' %>'); width:100vw; height: 60vh; display: flex; flex-direction: column; justify-content: center; align-items: center; color: white; background-size: cover;">
+    <div style="margin-bottom: 40px;">
+      <%= link_to root_path, class: "navbar-brand" do %>
+        <%= image_tag "logo_gargaleria_laranja", class: 'logo' %>
+      <% end %>
+    </div>
+    <div style="margin-bottom: 180px;">
+      <h1>Coloque o seu produto em nosso site!</h1>
+      <p>Tenha visibilidade e compartilhe suas criações com nossos visitantes</p>
+    </div>
+  </div>
+
+  <div style="display: flex; flex-direction: column; width: 60vw; justify-content: center; align-items: center;margin-top: -150px;">
+      <div style="width: 40vw; background-color:#f4f4f4; padding: 40px;">
   <%= simple_form_for @beverage, url: dashboard_beverage_path(@beverage), method: :patch do |f| %>
     <%= render 'form', f: f %>
   <% end %>
-  <%= link_to 'Return', dashboard_beverages_path, class:"btn btn-primary" %>
+  
+</div>
+</div>
 </div>
