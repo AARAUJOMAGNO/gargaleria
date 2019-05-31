@@ -1,3 +1,43 @@
+<div class="navbar-lewagon navbar-adjust container-top">
+  <div>
+    <%= link_to "/" do  %>
+      <%= image_tag "logo_gargaleria_laranja", class: 'logo' %>
+    <% end %>
+  </div>
+  <div class="dashboard">
+    <ul>
+      <% if user_signed_in? %>
+        <% if current_user.seller %>
+          <li>
+            <%= link_to "Dashboard", dashboard_beverages_path, id:"link_dashboard" %>
+        <% else %>
+          <li>
+            <%= link_to "Become a Seller", become_seller_path, id:"link_seller" %>
+             <%= link_to "About", about_path, method: :get %>
+          </li>
+        <% end %>
+        <li>
+          <%= image_tag "https://kitt.lewagon.com/placeholder/users/aaraujomagno", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+            <% unless current_user.seller %>
+              <%= link_to "Histories", dashboard_beverages_path, class: "dropdown-item" %>
+            <% end %>
+            <%= link_to "Another action", "#", class: "dropdown-item" %>
+            <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+
+
+
+          </div>
+        </li>
+      <% else %>
+        <li>
+          <%= link_to "Login", new_user_session_path, id:"link_login" %>
+        </li>
+      <% end %>
+    </ul>
+  </button>
+  </div>
+</div>
 <div class="banner" id="banner">
   <%= render './shared/navbar' %>
   <div style="width: 75vw; margin-bottom:150px;">
