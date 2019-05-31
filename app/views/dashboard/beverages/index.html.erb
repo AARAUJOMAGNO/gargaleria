@@ -63,22 +63,22 @@
       <div style="text-align: center;background: grey; height: 30px; border-radius: 3px; background:#551012;">
         <p><span style="color:orange;">Purchase list</span></p>
       </div>
-      <div style="display: flex; flex-direction: column; padding: 10px;">
+      <div style="display: flex; flex-direction: column; align-items:center; padding: 10px;">
         <% @orders_buy.each do |buy| %>
           <div style="margin-bottom:5px;">
-            <%= link_to buy.beverage.name, dashboard_order_path(buy.id)%>
-            <%= buy.status %>
-            <%= buy.created_at.strftime("%d/%m/%Y") %>
+            <span style="margin-right:10px;"><%= link_to buy.beverage.name, dashboard_order_path(buy.id)%></span>
+            <span style="margin-right:10px;"><%= buy.status %></span>
+            <span style="margin-right:10px;"><%= buy.created_at.strftime("%d/%m/%Y") %></span>
           </div>
         <% end %>
       </div>
     </div>
     <% if current_user.seller %>
     <div style = "display: flex; flex-direction: column; justify-content: center;">
-      <div style="text-align: center;background: grey; height: 30px; border-radius: 3px; background:#551012;">
+      <div style="text-align: center; height: 30px; border-radius: 3px; background:#551012;">
         <p><span style="color:orange;">Sales list</span></p>
       </div>
-      <div style="display: flex; flex-direction: column; padding: 10px;">
+      <div style="display: flex; flex-direction: column; align-items:center; padding: 10px;">
         <% @orders_sell.each do |sell| %>
           <% sell.each do |item|  %>
             <div style="margin-bottom:5px;">
