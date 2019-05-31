@@ -19,3 +19,6 @@
       </div>
   </div>
 </div>
+<%= javascript_tag do %>
+  <%= render(:partial => 'shared/category_name', :handlers => [:erb], :formats => [:js]) %>
+<% end %>
