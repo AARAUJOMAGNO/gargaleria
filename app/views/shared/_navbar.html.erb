@@ -34,7 +34,11 @@
           </li>
         <% end %>
         <li class="nav-item dropdown" style="display: inline;">
-          <%= image_tag "https://kitt.lewagon.com/placeholder/users/aaraujomagno", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <% if current_user.photo.url %>
+            <%= cl_image_tag (current_user.photo), class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <% else %>
+            <%= image_tag "https://kitt.lewagon.com/placeholder/users/aaraujomagno", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <% end %>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
             <% if current_user.seller %>
               <%= link_to "Dashboard", dashboard_beverages_path, class: "dropdown-item", id:"link_dashboard" %>
