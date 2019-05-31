@@ -11,6 +11,9 @@ class BeveragesController < ApplicationController
     end
   end
 
+  def about
+  end
+
   def show
   end
 

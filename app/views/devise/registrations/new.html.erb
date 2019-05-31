@@ -12,6 +12,19 @@
 <div style="display: flex; flex-direction: column; width: 60vw; justify-content: center; align-items: center;margin-top: -150px;">
   <div style="width: 40vw; background-color:#f4f4f4; padding: 40px;">
 <div class="container">
+<div style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+<div style="background-image: url('<%= image_path 'login.jpg' %>'); width:100vw; height: 60vh; display: flex; flex-direction: column; justify-content: center; align-items: center; color: white; background-size: cover;">
+  <div style="margin-bottom: 40px;">
+    <%= image_tag "logo_gargaleria_laranja", class: 'logo' %>
+  </div>
+  <div style="margin-bottom: 180px;">
+    <h1>Venha comprar uma boa CERVA!</h1>
+    <p>Faça seu cadastro e aproveita as vantagens de ser membro da comunidade cervejeira</p>
+  </div>
+</div>
+
+<div style="display: flex; flex-direction: column; width: 60vw; justify-content: center; align-items: center;margin-top: -150px;">
+  <div style="width: 40vw; background-color:#f4f4f4; padding: 40px;">
   <h2>Sign up</h2>
 
   <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
@@ -32,7 +45,7 @@
       <%= f.input :terms, label: "I'm older than 18 years old." %>
     </div>
 
-    <div class="form-actions">
+    <div class="form-actions" style="margin-bottom: 20px;">
       <%= f.button :submit, "Sign up", id:"link_login_form" %>
     </div>
   <% end %>
