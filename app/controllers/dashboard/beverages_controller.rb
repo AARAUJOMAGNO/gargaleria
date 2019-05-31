@@ -16,11 +16,11 @@ class Dashboard::BeveragesController < ApplicationController
     @beverage = Beverage.new
 
     # @categories = Beverage.pluck(:category).uniq
-    # @categories << "Other"
   end
 
   def get_categories
     @categories = Beverage.where(genre: params[:genre].downcase).pluck(:category).uniq
+    @categories << "Other"
     # render :json => @categories.map { |c| { category: c.category } }
     respond_to do |format|
       format.json { render json: @categories, status: 200 }
