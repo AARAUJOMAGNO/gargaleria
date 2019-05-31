@@ -1,9 +1,4 @@
 <div class="navbar-lewagon navbar-adjust container-top">
-  <div>
-    <%= link_to "/" do  %>
-      <%= image_tag "logo_gargaleria_laranja", class: 'logo' %>
-    <% end %>
-  </div>
   <div class="dashboard">
     <ul>
       <% if user_signed_in? %>
@@ -24,18 +19,14 @@
             <% end %>
             <%= link_to "Another action", "#", class: "dropdown-item" %>
             <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
-
-
-
           </div>
         </li>
       <% else %>
         <li>
-          <%= link_to "Login", new_user_session_path, id:"link_login" %>
+          <!-- = link_to "Login", new_user_session_path, id:"link_login" -->
         </li>
       <% end %>
     </ul>
-  </button>
   </div>
 </div>
 <div class="banner" id="banner">
