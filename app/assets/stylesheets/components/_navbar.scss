@@ -34,6 +34,12 @@
 
 #navbarDropdown {
   margin-left: 15px;
+  &:hover{
+    border-color: red;
+    // border: 2px solid rgba(244, 155, 40, 0.8);
+    transition: 0.1s;
+    box-shadow: 0 0 2px 2px rgba(244, 155, 40, 0.8);
+  }
 }
 
 // .dashboard ul li {
