@@ -1,9 +1,23 @@
-<%= render 'shared/navbar_intern' %>
+<div style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+<div style="background-image: url('<%= image_path 'login.jpg' %>'); width:100vw; height: 60vh; display: flex; flex-direction: column; justify-content: center; align-items: center; color: white; background-size: cover;">
+  <div style="margin-bottom: 40px;">
+    <%= link_to root_path, class: "navbar-brand" do %>
+      <%= image_tag "logo_gargaleria_laranja", class: 'logo' %>
+    <% end %>
+  </div>
+  <div style="margin-bottom: 180px; text-align: center">
+    <h1>Ótima escolha!</h1>
+    <p>Agora falta pouco para encaminharmos o seu produto.<br>Escolha a quantidade desejada e finalize seu pedido.</p>
+  </div>
+</div>
+
+<div style="display: flex; flex-direction: column; width: 60vw; justify-content: center; align-items: center;margin-top: -150px;">
+  <div style="width: 40vw; background-color:#f4f4f4; padding: 40px;">
 <div class="container">
-  <h1>Comprar produto</h1>
-  <%= @beverage.name %><span id="beverage-stock" style="margin-left: 10px;">Stock: <%= @beverage.stock %></span>
+  <h3><%= @beverage.name %></h3>
+  <span id="beverage-stock" style="margin-left: 0px;"><strong>Stock:</strong>: <%= @beverage.stock %></span><span><strong><span style="margin-right: 20px"></span>Price:</strong> <%= @beverage.price %></span>
   <%= simple_form_for @order, url:beverages_finalize_path(@beverage), method: :post  do |f| %>
   <%= f.input :quantity, collection: 1..@beverage.stock, include_blank: false  %>
-  <%= f.submit 'Finalize', class:"btn btn-primary", id:"btn-finalize" %>
+  <%= f.submit 'Finalize', id:"link_login_form" %>
   <% end %>
 </div>
