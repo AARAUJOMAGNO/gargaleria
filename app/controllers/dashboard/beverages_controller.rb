@@ -3,7 +3,7 @@ class Dashboard::BeveragesController < ApplicationController
   skip_before_action :verify_authenticity_token
 
   def index
-    @beverages = current_user.beverages
+    @beverages = current_user.beverages.page(params[:page]).per(4)
     @orders_buy = current_user.orders
     @orders_sell = current_user.beverages.map { |b| b.orders }
   end

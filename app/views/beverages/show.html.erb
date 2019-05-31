@@ -1,25 +1,7 @@
-<!-- <div></div> render 'shared/navbar_intern'</div> -->
-<!-- <div class="container">
-  <div style="display: flex; flex-direction: column;">
-  <div>
-  <%= @beverage.name %>
-  </div>
-  <div>
-  <% unless @beverage.user == current_user %>
-    <%= link_to "Buy", beverages_buy_path(@beverage), class:"btn btn-warning" %>
-  <% end %>
-  </div>
-  <div>
-  <%= link_to 'Return', beverages_path, class:"btn btn-primary" %>
-  </div>
-  </div>
-</div> -->
-
 <div class="show-general">  <!-- ## Div geral da show -->
   <div class="show-nav">
     <%= render 'shared/navbar_intern'  %>
   </div> <!--Fechamento do navbar intern-->
-
   <div class="show-content" style=" display: flex; justify-content: center; align-items: center; height: 100vh; padding-bottom: 40px">
     <div class="show-content-product" style="width: 80vw; height: 70vh; display: flex; flex-direction: row; justify-content: center; align-items: center; padding:50px ; margin-top: -140px">
       <div class="show-product-photo " style="width: 50vw; height: 50vh; justify-content: space-between; align-items: center; border">
@@ -67,11 +49,7 @@ flex-direction: column;">
       </div>
     </div> <!-- ##fechamento div do content product -->
   </div> <!-- ##fechamento div content -->
-
 </div> <!-- ##fechamento do div show -->
-
-
-
 </div>
 
 
