@@ -12,7 +12,7 @@
     <div class="card-title">
       <% @beverages.each do |beverage| %>
       <% if beverage.published %>
-        <div class="content-cards">
+        <div class="content-cards" style="width: 350px;">
         <div style="margin-top:40px; border-top: 5px solid #9c2c2c;">
           <p style="margin-top:10px; margin-bottom: 10px; font-weight: bold; font-size: 22px;"><%= link_to beverage.name, beverage_path(beverage.id), class: 'card-sm'  %></p>
         </div>
