@@ -1,8 +1,8 @@
 <div style="display: flex; flex-direction: row; justify-content: space-between; color:white; background: #551012">
   <div style="display:flex; justify-content:center; align-items:center;width: 20vw;">
-    <%#= link_to root_path, class: "navbar-brand" do %>
+    <%= link_to root_path, class: "navbar-brand" do %>
     <%= image_tag "logo_gargaleria_laranja", class: 'logo' %>
-  <%# end %>
+  <% end %>
   </div>
   <div style="width: 20vw;">
     <ul style="display: flex; flex-direction: row; justify-content: space-around; align-items: center; margin-top: 25px;">
@@ -18,7 +18,7 @@
             <% else %>
               <%= link_to "Become a Seller", become_seller_path, id:"link_seller", class: "dropdown-item" %>
             <% end %>
-            <%= link_to "Another action", "#", class: "dropdown-item" %>
+            <%= link_to "Edit Profile", edit_user_registration_path, class: "dropdown-item" %>
             <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
           </div>
         </li>
