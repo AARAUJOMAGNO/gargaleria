@@ -1,5 +1,5 @@
 // Specific CSS for your home-page
-#link_login{
+.link_login{
   border-radius: 5px;
   border: 2px solid orange;
   padding: 5px 10px;
@@ -10,6 +10,7 @@
     text-decoration: none;
     background: orange;
     transition: 0.5s;
+    color:white;
   }
 }
 
@@ -28,8 +29,3 @@
     transition: 0.5s;
   }
 }
-
-// input[type=text]:focus{
-//   outline: none;
-//   box-shadow: 0 0 0 2px orange;
-// }
