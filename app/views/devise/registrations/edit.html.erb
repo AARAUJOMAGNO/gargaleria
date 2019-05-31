@@ -1,6 +1,18 @@
-<div class="container">
-  <h2>Edit <%= resource_name.to_s.humanize %></h2>
+<div style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+  <div style="background-image: url('<%= image_path 'login.jpg' %>'); width:100vw; height: 60vh; display: flex; flex-direction: column; justify-content: center; align-items: center; color: white; background-size: cover;">
+    <div style="margin-bottom: 40px;">
+      <%= link_to root_path, class: "navbar-brand" do %>
+        <%= image_tag "logo_gargaleria_laranja", class: 'logo' %>
+      <% end %>
+    </div>
+    <div style="margin-bottom: 180px;">
+      <h1>Coloque o seu produto em nosso site!</h1>
+      <p>Tenha visibilidade e compartilhe suas criações com nossos visitantes</p>
+    </div>
+  </div>
 
+  <div style="display: flex; flex-direction: column; width: 60vw; justify-content: center; align-items: center;margin-top: -150px;">
+      <div style="width: 40vw; background-color:#f4f4f4; padding: 40px;">
   <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= f.error_notification %>
 
@@ -33,14 +45,17 @@
     <%= f.input :photo_cache, as: :hidden %>
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Update" %>
+  <div class="form-actions" style="display:flex; flex-direction:row; justify-content:space-between;">
+    <%= f.button :submit, "Update", id:"link_login_form" %>
+    <%= link_to "Return", :back, class:"card-sm"  %>
   </div>
   <% end %>
 
-  <h3>Cancel my account</h3>
+  <!-- <h3>Cancel my account</h3>
 
-  <p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+  <p>Unhappy? <%#= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p> -->
 
-  <%= link_to "Back", :back %>
+
+</div>
+</div>
 </div>
