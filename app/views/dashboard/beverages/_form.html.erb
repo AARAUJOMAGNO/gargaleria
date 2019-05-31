@@ -9,4 +9,11 @@
   <%= f.input :brand, label: "Insert brand" %>
   <%= f.input :photo, label: "Photo" %>
   <%= f.input :photo_cache, as: :hidden %>
-  <%= f.submit 'Send', class:"btn btn-primary" %>
+  <div style="display:flex; flex-direction:row; justify-content: space-between;">
+    <div>
+      <%= f.submit 'Send', id:"link_login_form" %>
+    </div>
+    <div>
+      <%= link_to 'Return', dashboard_beverages_path, class:"card-sm" %>
+    </div>
+  </div>
