@@ -1,8 +1,10 @@
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
-  <%= f.input :name, label: "Insert label" %>
-  <%= f.input :price, label: "Insert price" %>
-  <%= f.input :stock, label: "Insert stock" %>
+  <%= f.input :name %>
+  <div class="">
+    <%= f.input :price %>
+    <%= f.input :stock %>
+  </div>
   <%= f.input :description, label: "Insert description" %>
   <%= f.input :genre, as: :radio_buttons, collection: [['Cachaça', 'cachaça'], ['Beer', 'cerveja']], label_method: :first, value_method: :last, wrapper: :vertical_collection_inline, class: "beverage-genre", checked: 0 %>
   <%= f.input :category, collection: [], include_blank: false %>
