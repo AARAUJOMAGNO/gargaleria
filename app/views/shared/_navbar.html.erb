@@ -30,7 +30,7 @@
       <% if user_signed_in? %>
         <% unless current_user.seller %>
           <li class="nav-item active" style="display: inline;">
-            <%= link_to "Become a Seller", become_seller_path, id:"link_seller" %>
+            <%= link_to "Become a Seller", become_seller_path, class:"link_login" %>
           </li>
         <% end %>
         <li class="nav-item dropdown" style="display: inline;">
@@ -52,7 +52,7 @@
         </li>
       <% else %>
         <li class="nav-item" style="display: inline;">
-          <%= link_to "Login", new_user_session_path, id:"link_login" %>
+          <%= link_to "Login", new_user_session_path, class:"link_login" %>
         </li>
       <% end %>
     </ul>
