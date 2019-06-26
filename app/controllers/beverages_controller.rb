@@ -6,6 +6,8 @@ class BeveragesController < ApplicationController
   def index
     if params[:query].present?
       @beverages = Beverage.global_search(params[:query]).page(params[:page]).per(9)
+    elsif params[:type].present?
+      @beverages = Beverage.global_search(params[:type]).page(params[:page]).per(9)
     else
       @beverages = Beverage.page(params[:page]).per(9)
     end
@@ -52,6 +54,7 @@ class BeveragesController < ApplicationController
   def find_order
     @order = Order.find(params[:id])
   end
+
 
   def params_orders
     params.require(:order).permit(:quantity)

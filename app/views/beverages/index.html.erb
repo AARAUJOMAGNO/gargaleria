@@ -8,6 +8,11 @@
 </div>
 
 <div class="container-top">
+  <div class="content-filter" style="padding: 10px;">
+    <div class="content-filter-item <%= params[:type] == 'cerveja' ? 'active' : '' %>"><%= link_to 'Cerveja', beverages_path(type: 'cerveja'), method: :get, class:"filter-type" %></div>
+    <div class="content-filter-item <%= params[:type] == 'cachaca' ? 'active' : '' %>"><%= link_to 'Cachaca', beverages_path(type: 'cachaca'), method: :get, class:"filter-type" %></div>
+    <div class="content-filter-item <%= params[:type].present? || params[:query].present? ? '' : 'active' %>"><%= link_to 'Todos', beverages_path, class:"filter-type"%></div>
+  </div>
   <div class="content">
     <div class="card-title">
       <% @beverages.each do |beverage| %>

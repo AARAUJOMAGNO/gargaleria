@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get 'about', to: 'pages#about', as: 'about'
 
   resources :beverages, only: %i[index show]
-
+  post 'beverages', to:"beverages#index"
   get 'beverages/:id/buy', to: "beverages#buy", as: 'beverages_buy'
   post 'beverages/:id/finalize', to: "beverages#finalize", as: 'beverages_finalize'
   get 'orders/:id/finalize', to: "beverages#seller", as: 'beverages_seller'
